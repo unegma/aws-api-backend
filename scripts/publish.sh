@@ -2,14 +2,18 @@
 
 # turn off cli pager
 export AWS_PAGER=""
+
 FUNCTION_NAME=""
 AWS_PROFILE_NAME=""
+AWS_REGION=""
 
 #get parameters
-while getopts f: flag
+while getopts f:p:r: opts
 do
-  case "${flag}" in
+  case "${opts}" in
     f) FUNCTION_NAME=${OPTARG};;
+    p) AWS_PROFILE_NAME=${OPTARG};;
+    r) AWS_REGION=${OPTARG};;
   esac
 done
 
@@ -19,21 +23,14 @@ then
   exit 1
 fi
 
-while getopts p: profile
-do
-  case "${profile}" in
-    p) AWS_PROFILE_NAME=${OPTARG};;
-  esac
-done
-
-echo "# Beginning Deployment of $FUNCTION_NAME, aws profile: $AWS_PROFILE_NAME"
+echo "# Beginning Deployment of $FUNCTION_NAME, aws profile: $AWS_PROFILE_NAME, aws regin: $AWS_REGION"
 
 echo "## Temporarily moving current node_modules (with dev dependencies)..."
 mv ./node_modules ./node_modules--temp || { echo "Failed to move node_modules"; exit 1; }
 
 echo "## Installing production dependencies..."
 npm install --only=production || { echo "Failed to install dependencies"; exit 1; }
-node-prune
+#node-prune
 
 rm -rf ./dist/node_modules
 mv ./node_modules ./dist/node_modules
@@ -49,11 +46,12 @@ rm -rf ./dist/node_modules
 
 # deploy
 echo "## Deploying..."
-aws --profile $AWS_PROFILE_NAME lambda update-function-code --function-name $FUNCTION_NAME --zip-file fileb://function.zip || { echo "Failed to publish"; exit 1; }
+aws --profile $AWS_PROFILE_NAME --region $AWS_REGION lambda update-function-code --function-name $FUNCTION_NAME --zip-file fileb://function.zip || { echo "Failed to publish"; exit 1; }
 
 # Bump version
 # todo when move all scripts to one place, make sure this is executed on the right package.json
-npm version minor
+# bump version without creating ugly commits: https://stackoverflow.com/questions/66717190/is-there-a-way-to-bump-the-version-without-version-commits
+npm version --commit-hooks false --git-tag-version false minor
 
 echo "## Cleaning up..."
 rm ./function.zip
