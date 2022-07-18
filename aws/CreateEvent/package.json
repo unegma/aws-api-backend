@@ -10,7 +10,7 @@
     "compile": "which tsc; tsc",
     "compile-watch": "tsc -w",
     "compile-on-fly": "ts-node ./src/index.ts",
-    "pub-aws": "eval $(grep '^FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && npm run-script compile && bash ../../scripts/publish.sh -f $FUNCTION_NAME -p $AWS_PROFILE -r $AWS_REGION",
+    "DEPLOY": "eval $(grep '^FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && npm run-script compile && bash ../../scripts/publish.sh -f $FUNCTION_NAME -p $AWS_PROFILE -r $AWS_REGION",
     "live-test": "eval $(grep '^FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && aws --profile $AWS_PROFILE lambda invoke --function-name '$FUNCTION_NAME' --invocation-type RequestResponse --region $AWS_REGION --log-type Tail --cli-binary-format raw-in-base64-out --payload file://tests/testData/notconfigued.json response.json"
   },
   "devDependencies": {
