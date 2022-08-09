@@ -8,13 +8,13 @@ const expect = chai.expect;
 const FUNCTION_NAME = "CreateEvent";
 require('dotenv').config({ path: '../../.env' }); // todo this will be different when moving directory
 
-// probably need to run compile-watch whilst doing this // todo check
 /**
  * !!!!!!
- * REMEMBER TO RUN COMPILE-WATCH WHILST RUNNING
+ * !! REMEMBER TO RUN `npm run compile-watch` WHILST RUNNING IN ORDER FOR DEBUGGING TO WORK OR SET UP AS SO:
+ * !! https://medium.com/@kandros/getting-started-with-typescript-debugging-with-webstorm-breakpoints-f88aab1ffe5d
  * !!!!!!
+ *
  */
-
 describe(FUNCTION_NAME, () => { // todo check if this works
     let event = require('./testData/testData.json');
     let awsStub;
@@ -48,7 +48,7 @@ describe(FUNCTION_NAME, () => { // todo check if this works
     it('should return a 200 response with body', async function() {
         // need to use function() in order to use this.timeout https://mochajs.org/#arrow-functions
         // only need this for developing using tests, don't need for when stubbing
-        this.timeout(400000);
+        // this.timeout(400000);
         event.body = JSON.stringify(event.body);
         event.headers.origin = 'localhost:';
 
