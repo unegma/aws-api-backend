@@ -1,5 +1,5 @@
 {
-  "name": "Unegma_BookingSystemBackend_CreateEvent",
+  "name": "Unegma_ExampleBackend_SendMessage",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
