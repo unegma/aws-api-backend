@@ -10,7 +10,8 @@
     "compile": "which tsc; tsc",
     "compile-watch": "tsc -w",
     "compile-on-fly": "ts-node ./src/index.ts",
-    "create-role-AND-GET-ARN": "eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_ROLE_NAME' .env) && aws --profile $AWS_PROFILE iam create-role --role-name $AWS_ROLE_NAME --assume-role-policy-document file:///$PWD/settings/trust_policy.json",
+    "1-create-role-AND-GET-ARN": "eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_ROLE_NAME' .env) && aws --profile $AWS_PROFILE iam create-role --role-name $AWS_ROLE_NAME --assume-role-policy-document file:///$PWD/settings/trust_policy.json",
+    "2-attach-policy-to-role": "eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_ROLE_NAME' .env) && eval $(grep '^AWS_ROLE_ARN' .env) && aws --profile $AWS_PROFILE iam attach-role-policy --role-name $AWS_ROLE_NAME --policy-arn $AWS_ROLE_ARN",
     "DEPLOY": "eval $(grep '^FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && npm run-script compile && bash ../../scripts/publish.sh -f $FUNCTION_NAME -p $AWS_PROFILE -r $AWS_REGION",
     "live-test": "eval $(grep '^FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && aws --profile $AWS_PROFILE lambda invoke --function-name '$FUNCTION_NAME' --invocation-type RequestResponse --region $AWS_REGION --log-type Tail --cli-binary-format raw-in-base64-out --payload file://tests/testData/notconfigued.json response.json"
   },
