@@ -1,6 +1,0 @@
-{
-  "Variables": {
-    "SLACK_ERROR_LOG": "accounting",
-    "SLACK_MESSAGES_LOG": "accounting"
-  }
-}
