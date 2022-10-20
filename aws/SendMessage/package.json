@@ -17,7 +17,7 @@
     "3c-update-lambda-environment-vars-no-revision-id": "aws lambda update-function-configuration --function-name lambda-example --environment file://environment.json --query \"Environment\"",
     "DEPLOY": "eval $(grep '^AWS_FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && npm run-script compile && bash ../../scripts/publish.sh -f $AWS_FUNCTION_NAME -p $AWS_PROFILE -r $AWS_REGION",
     "live-test": "eval $(grep '^AWS_FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && aws --profile $AWS_PROFILE lambda invoke --function-name $AWS_FUNCTION_NAME --invocation-type RequestResponse --region $AWS_REGION --log-type Tail --cli-binary-format raw-in-base64-out --payload file://tests/testData/notconfigued.json response.json",
-    "live-test-2": "eval $(grep '^AWS_FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && aws --profile $AWS_PROFILE lambda invoke --function-name $AWS_FUNCTION_NAME --invocation-type RequestResponse --region $AWS_REGION --log-type Tail --cli-binary-format raw-in-base64-out --payload $(echo '{\"username\": \"tc\"}' | base64) /dev/null"
+    "live-test-2": "eval $(grep '^AWS_FUNCTION_NAME' .env) && eval $(grep '^AWS_PROFILE' .env) && eval $(grep '^AWS_REGION' .env) && aws --profile $AWS_PROFILE lambda invoke --function-name $AWS_FUNCTION_NAME --invocation-type RequestResponse --region $AWS_REGION --log-type Tail --cli-binary-format raw-in-base64-out --payload '{\"foo\":\"bar\"}' /dev/null"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.83",
