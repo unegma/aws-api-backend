@@ -48,12 +48,12 @@ export const handler = async (event: APIGatewayProxyEvent, context: any = {}): P
     // }
 
     // @ts-ignore
-    let data = JSON.parse(event.body);
-    console.log(`Data: ${JSON.stringify(data)}`);
+    // let data = JSON.parse(event.body);
+    // console.log(`Data: ${JSON.stringify(data)}`);
 
-    await slackLogger.log('handler', data);
+    // await slackLogger.log('handler', data);
 
-    console.log(`Completed ${AWS_FUNCTION_NAME}`);
+    // console.log(`Completed ${AWS_FUNCTION_NAME}`);
 
     return {
       headers: headers,
