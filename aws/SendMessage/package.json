@@ -1,6 +1,6 @@
 {
   "name": "Unegma_ExampleBackend_SendMessage",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "index.js",
   "scripts": {
     "pull-template": "git pull original master --allow-unrelated-histories",
