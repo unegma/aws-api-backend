@@ -32,7 +32,7 @@ const headers = {
 export const handler = async (event: APIGatewayProxyEvent, context: any = {}): Promise<APIGatewayProxyResult> => {
   console.log(`# Beginning ${AWS_FUNCTION_NAME}`); console.log(JSON.stringify(event)); console.log(context);
   // const queries = JSON.stringify(event.queryStringParameters);
-  let message = "# Success";
+  let message = { "Message": "Success" };
 
   try {
     // @ts-ignore
@@ -58,7 +58,8 @@ export const handler = async (event: APIGatewayProxyEvent, context: any = {}): P
     return {
       headers: headers,
       statusCode: 200,
-      body: message // body: JSON.stringify(response)
+      // body: message // body: JSON.stringify(response)
+      body: JSON.stringify(message)
     };
   } catch(error: any) {
     // TODO REMOVE THIS IN PRODUCTION OR WILL DISPLAY VERBOSE ERRORS
@@ -68,7 +69,8 @@ export const handler = async (event: APIGatewayProxyEvent, context: any = {}): P
     return {
       headers: headers,
       statusCode: 200, // todo should this be 500?
-      body: message // body: JSON.stringify(response)
+      // body: message // body: JSON.stringify(response)
+      body: JSON.stringify(message)
     };
   }
 
