@@ -53,3 +53,6 @@ Thumbs.db
 .env
 
 function.zip
+
+# logs from aws cli
+*.log.md
