@@ -36,16 +36,16 @@ export const handler = async (event: APIGatewayProxyEvent, context: any = {}): P
 
   try {
     // @ts-ignore
-    let origin = event.headers.origin;
-    console.log(`Origin: ${origin}`);
+    // let origin = event.headers.origin;
+    // console.log(`Origin: ${origin}`);
 
     // very basic authorization
     // todo please make this more secure
-    if (typeof origin === "undefined" ||
-        !['localhost:', "https://booking-system.unegma.io"].includes(origin)
-    ) {
-      throw new Error('Unauthorized');
-    }
+    // if (typeof origin === "undefined" ||
+    //     !['localhost:', "https://booking-system.unegma.io"].includes(origin)
+    // ) {
+    //   throw new Error('Unauthorized');
+    // }
 
     // @ts-ignore
     let data = JSON.parse(event.body);
