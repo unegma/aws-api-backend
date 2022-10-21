@@ -9,3 +9,6 @@ vim .git/config
     
 git pull original master --allow-unrelated-histories
 ```
+
+### Notable Issues
+* $PWD will need changing to work with directories with spaces or probably also special characters 
