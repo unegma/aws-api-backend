@@ -10,6 +10,13 @@ When adding a new lambda function:
 todo Remember to add install and upload paths to top level package.json
 
 
+
+todo figure out what is going on with environment.json
+tidy up so do things in order
+find the articles which you read previously
+add the links to the articles in here
+try the example with account id again for creating rest api
+
 ---
 
 # Examples using jq for pulling values from json
