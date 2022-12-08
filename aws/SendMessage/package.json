@@ -3,7 +3,7 @@
   "version": "1.3.0",
   "main": "index.js",
   "scripts": {
-    "pull-template": "git pull original master --allow-unrelated-histories",
+    "pull-base": ". .env && git pull $BASE_REPO_URL master --allow-unrelated-histories",
     "test": "tsc; mocha -r esm ./test/index.spec.ts",
     "install-deps": "npm install;",
     "update-install": "npm update; npm install;",
