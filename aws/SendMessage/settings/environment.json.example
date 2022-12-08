@@ -1,0 +1,7 @@
+{
+  "Variables": {
+    "EXAMPLE": "example"
+    "SLACK_MESSAGES_LOG": "PRIVATE-LINK-DONT-COMMIT",
+    "SLACK_ERROR_LOG": "PRIVATE-LINK-DONT-COMMIT"
+  }
+}

@@ -51,8 +51,8 @@ Thumbs.db
 
 # Environment variables
 .env
-
 function.zip
+environment.json
 
 # logs from aws cli
 *.log.md
