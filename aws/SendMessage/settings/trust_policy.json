@@ -3,18 +3,10 @@
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "logs:CreateLogGroup",
-      "Resource": "arn:aws:logs:eu-west-2:952351240809:*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      "Resource": [
-        "arn:aws:logs:eu-west-2:952351240809:log-group:/aws/lambda/Unegma_ExampleBackend_SendMessage:*"
-      ]
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
     }
   ]
 }
