@@ -43,7 +43,7 @@
     "1-delete-http-api-route": "#. .env && aws --profile $AWS_PROFILE apigatewayv2 --region $AWS_REGION delete-route --route-id $THE_ROUTE_ID",
     "2-delete-http-api": "#. .env && aws --profile $AWS_PROFILE apigatewayv2 --region $AWS_REGION delete-api --api-id $AWS_API_ID",
     "### Test Functions": "",
-    "test": "tsc; mocha -r esm ./test/index.spec.ts",
+    "test": "npx tsc; mocha -r esm ./test/index.spec.ts",
     "live-test": ". .env && aws --profile $AWS_PROFILE lambda invoke --function-name $AWS_FUNCTION_NAME --invocation-type RequestResponse --region $AWS_REGION --log-type Tail --cli-binary-format raw-in-base64-out --payload file://tests/testData/notconfigued.json response.json",
     "live-test-2": ". .env && aws --profile $AWS_PROFILE lambda invoke --function-name $AWS_FUNCTION_NAME --invocation-type RequestResponse --region $AWS_REGION --log-type Tail --cli-binary-format raw-in-base64-out --payload '{\"foo\":\"bar\"}' /dev/null",
     "live-test-3": "curl -X $THE_API_ENDPOINT/$AWS_API_METHOD_NAME",
