@@ -17,7 +17,7 @@ todo Remember to add install and upload paths to top level package.json
 Info from here: 
 * https://cloudnamaste.com/how-to-create-an-api-gateway-rest-api-using-aws-cli/
 * https://bobbyhadz.com/blog/aws-cli-create-lambda-function
-
+* https://medium.com/@schogini/aws-apigateway-and-lambda-a-get-mehod-cli-demo-8a05e82df275
 ---
 
 # Examples using jq for pulling values from json
