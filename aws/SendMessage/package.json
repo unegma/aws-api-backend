@@ -26,6 +26,8 @@
     "6-put-integration-response": ". .env && aws --profile $AWS_PROFILE --region $AWS_REGION apigateway put-integration-response --rest-api-id $AWS_API_ID --resource-id $AWS_ROOT_RESOURCE_ID --http-method GET --status-code 200",
     "6b-put-integration-response": ". .env && aws --profile $AWS_PROFILE --region $AWS_REGION apigateway put-integration-response --rest-api-id $AWS_API_ID --resource-id $AWS_CHILD_RESOURCE_ID --http-method GET --status-code 200",
     "7-deploy-api": ". .env && aws --profile $AWS_PROFILE --region $AWS_REGION apigateway create-deployment --rest-api-id $AWS_API_ID --stage-name prod --stage-description 'Live' --description 'Deployment' >> $PWD/settings/log/7-api-$AWS_API_ID-deployment.log.md",
+    "8-call-api": ". .env && curl -v https://$AWS_API_ID.execute-api.us-west-1.amazonaws.com/prod",
+    "8b-call-api-child": ". .env && curl -v https://$AWS_API_ID.execute-api.us-west-1.amazonaws.com/prod/get-stuff",
     "### API Gateway v2 Functions": "",
     "#1-create-rest-api-resource-v2": "#. .env && aws --profile $AWS_PROFILE --region $AWS_REGION apigatewayv2 create-api --name $AWS_API_NAME --protocol-type HTTP --target $AWS_FUNCTION_ARN >> $PWD/settings/log/api-$AWS_API_NAME.log.md",
     "#2-get-api-integrations-AWS_INTEGRATION_ID": "#. .env && aws --profile $AWS_PROFILE --region $AWS_REGION apigatewayv2 get-integrations --api-id $AWS_API_ID >> $PWD/settings/log/api-integrations-$AWS_API_ID.log.md",
