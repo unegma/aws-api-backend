@@ -57,7 +57,7 @@
     "### Terraform Functions": "",
     "tf:init": "cd terraform; terraform init",
     "tf:plan": "cd terraform; terraform plan -var-file ./config/terraform.tfvars",
-    "tf:apply": "yarn build; cd terraform; terraform apply -var-file ./config/terraform.tfvars;",
+    "tf:apply": "npm run compile; cd terraform; terraform apply -var-file ./config/terraform.tfvars;",
     "tf:destroy": "cd terraform; terraform destroy -var-file ./config/terraform.tfvars",
     "### Deploy Functions": "",
     "DEPLOY": ". .env && npm run-script compile && bash ../../scripts/publish.sh -f $AWS_FUNCTION_NAME -p $AWS_PROFILE -r $AWS_REGION"
