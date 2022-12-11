@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "CloudWatchLogsPolicyDocument" {
       "cloudwatch:PutMetricData",
       "kms:*"
     ]
-    resources = ["*"]
+    resources = ["*"] // todo should this also be limited to arn?
   }
 }
 
@@ -44,8 +44,29 @@ data "aws_iam_policy_document" "executeApiPolicyDocument" {
       "execute-api:ManageConnections"
     ]
     resources = ["*"]
+
+    // todo should this be this?
+#    Resource: [
+#      "${aws_apigatewayv2_api.send_message.execution_arn}",
+#      "${aws_apigatewayv2_api.send_message.execution_arn}/index/*/*"
+#    ]
   }
 }
+
+// todo limit resources above?
+
+// todo does there need to be a lambda_persmission too? like this?
+#resource "aws_lambda_permission" "apigw" {
+#  statement_id  = "AllowAPIGatewayInvoke"
+#  action = "lambda:InvokeFunction"
+#  function_name = aws_lambda_function.SendMessage.function_name
+#  principal = "apigateway.amazonaws.com"
+#
+#  #   # The "/*/*" portion grants access from any method on any resource
+#  #   # within the API Gateway REST API.
+#  #   # source_arn = "${aws_api_gateway_rest_api.api_gateway_rest_api.execution_arn}/*/*"
+#  #   source_arn = "${aws_apigatewayv2_api.api_gateway_rest_api.execution_arn}/*/*"
+#}
 
 resource "aws_iam_policy" "CloudWatchLogsPolicy" {
   policy = data.aws_iam_policy_document.CloudWatchLogsPolicyDocument.json

@@ -4,7 +4,7 @@ data "archive_file" "function_archive" {
 #  source_dir  = "${path.module}/../lambda/dist"
 #  output_path = "${path.module}/../lambda/dist/function.zip"
   source_dir  = "${path.module}/../dist"
-  output_path = "${path.module}/../function.zip"
+  output_path = "${path.module}/../dist/function.zip"
 }
 
 # Send Message Function
@@ -27,18 +27,6 @@ resource "aws_lambda_function" "send-message" {
     }
   }
 }
-
-#resource "aws_lambda_permission" "apigw" {
-#  statement_id  = "AllowAPIGatewayInvoke"
-#  action = "lambda:InvokeFunction"
-#  function_name = aws_lambda_function.SendMessage.function_name
-#  principal = "apigateway.amazonaws.com"
-#
-#  #   # The "/*/*" portion grants access from any method on any resource
-#  #   # within the API Gateway REST API.
-#  #   # source_arn = "${aws_api_gateway_rest_api.api_gateway_rest_api.execution_arn}/*/*"
-#  #   source_arn = "${aws_apigatewayv2_api.api_gateway_rest_api.execution_arn}/*/*"
-#}
 
 resource "aws_cloudwatch_log_group" "SendMessageLogGroup" {
   name = "/aws/lambda/${aws_lambda_function.send-message.function_name}"
