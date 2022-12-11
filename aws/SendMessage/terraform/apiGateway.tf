@@ -1,3 +1,4 @@
+## API
 resource "aws_apigatewayv2_api" "send_message" {
   name                       = "SendMessage"
   description                = "Send Message Example"
@@ -24,11 +25,12 @@ resource "aws_apigatewayv2_api" "send_message" {
   }
 }
 
+## Log Groups
 resource "aws_cloudwatch_log_group" "HttpApiLogGroup" {
   name = "/aws/http-api/send-message-live"
 }
 
-// POST Send Message
+## POST Send Message
 resource "aws_lambda_permission" "SendMessageLambdaPermissionHttpApi" {
   action = "lambda:InvokeFunction"
   function_name = aws_lambda_function.send-message.function_name
