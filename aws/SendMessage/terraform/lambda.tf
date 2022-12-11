@@ -8,14 +8,14 @@ data "archive_file" "function_archive" {
 # Send Message Function
 resource "aws_lambda_function" "send-message" {
   function_name = "send-message"
-  filename = data.archive_file.function_archive.output_path
+#  filename = data.archive_file.function_archive.output_path
   memory_size = 128
   timeout = 15
 
   handler = "index.handler"
   runtime = "nodejs16.x"
 
-  source_code_hash = filebase64sha256(data.archive_file.function_archive)
+#  source_code_hash = filebase64sha256(data.archive_file.function_archive)
 
   role = aws_iam_role.lambda_role.arn
 
