@@ -30,6 +30,13 @@ resource "aws_lambda_function" "send-message" {
   }
 }
 
+resource "aws_lambda_permission" "apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.send-message.function_name
+  principal = "apigateway.amazonaws.com"
+}
+
 resource "aws_cloudwatch_log_group" "SendMessageLogGroup" {
   name = "/aws/lambda/${aws_lambda_function.send-message.function_name}"
   retention_in_days = 14
