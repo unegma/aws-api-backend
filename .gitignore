@@ -56,3 +56,6 @@ environment.json
 
 # logs from aws cli
 *.log.md
+
+# serverless
+.terraform
