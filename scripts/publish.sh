@@ -46,7 +46,8 @@ rm -rf ./dist/node_modules
 
 # deploy
 echo "## Deploying..."
-aws --profile $AWS_PROFILE_NAME --region $AWS_REGION lambda update-function-code --function-name $FUNCTION_NAME --zip-file fileb://function.zip || { echo "Failed to publish"; exit 1; }
+# now handled by terraform
+#aws --profile $AWS_PROFILE_NAME --region $AWS_REGION lambda update-function-code --function-name $FUNCTION_NAME --zip-file fileb://function.zip || { echo "Failed to publish"; exit 1; }
 
 # Bump version
 # todo when move all scripts to one place, make sure this is executed on the right package.json
