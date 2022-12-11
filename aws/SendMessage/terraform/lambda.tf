@@ -17,7 +17,7 @@ resource "aws_lambda_function" "send-message" {
   handler = "index.handler"
   runtime = "nodejs16.x"
 
-  source_code_hash = filebase64sha256(data.archive_file.function_archive)
+  source_code_hash = data.archive_file.function_archive.output_base64sha256
 
   role = aws_iam_role.lambda_role.arn
 
