@@ -1,4 +1,6 @@
 ## File for Uploading
+
+// todo does this remove the need for the publish function? how can they be combined?
 data "archive_file" "function_archive" {
   type        = "zip"
 #  source_dir  = "${path.module}/../lambda/dist"
