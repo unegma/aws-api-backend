@@ -2,7 +2,7 @@
 # DynamoDB table resources.
 #
 resource "aws_dynamodb_table" "SendMessage" {
-  name = "ExampleTable"
+  name = "SendMessage"
   billing_mode = "PAY_PER_REQUEST"
   hash_key = "id"
 
