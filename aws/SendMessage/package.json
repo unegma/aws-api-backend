@@ -1,6 +1,6 @@
 {
   "name": "Unegma_ExampleBackend_SendMessage",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "main": "index.js",
   "scripts": {
     "pull-base": ". .env && git pull $BASE_REPO_URL master --allow-unrelated-histories",
