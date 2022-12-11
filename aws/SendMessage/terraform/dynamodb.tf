@@ -7,7 +7,7 @@ resource "aws_dynamodb_table" "SendMessage" {
   hash_key = "id"
 
   attribute {
-    name = "message"
+    name = "id"
     type = "S"
   }
 
