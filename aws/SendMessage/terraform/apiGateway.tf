@@ -2,6 +2,7 @@
 resource "aws_apigatewayv2_api" "send_message" {
   name                       = "SendMessage"
   description                = "Send Message Example"
+#  todo do REST type
   protocol_type              = "HTTP"
   cors_configuration {
     allow_headers = [
