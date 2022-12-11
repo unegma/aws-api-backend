@@ -3,8 +3,8 @@ data "archive_file" "function_archive" {
   type        = "zip"
 #  source_dir  = "${path.module}/../lambda/dist"
 #  output_path = "${path.module}/../lambda/dist/function.zip"
-  source_dir  = "${path.module}/../settings"
-  output_path = "${path.module}/../settings/blueprint-function.zip"
+  source_dir  = "${path.module}/../dist"
+  output_path = "${path.module}/../function.zip"
 }
 
 # Send Message Function
