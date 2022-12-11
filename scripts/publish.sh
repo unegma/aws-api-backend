@@ -49,13 +49,19 @@ echo "## Deploying..."
 # now handled by terraform
 #aws --profile $AWS_PROFILE_NAME --region $AWS_REGION lambda update-function-code --function-name $FUNCTION_NAME --zip-file fileb://function.zip || { echo "Failed to publish"; exit 1; }
 
+
+
+
+
+#these have been moved to cleanup.sh
+
 # Bump version
 # todo when move all scripts to one place, make sure this is executed on the right package.json
 # bump version without creating ugly commits: https://stackoverflow.com/questions/66717190/is-there-a-way-to-bump-the-version-without-version-commits
-npm version --commit-hooks false --git-tag-version false minor
+#npm version --commit-hooks false --git-tag-version false minor
 
-echo "## Cleaning up..."
-rm ./function.zip
+#echo "## Cleaning up..."
+#rm ./function.zip
 
-echo "# Done."
-exit 0
+#echo "# Done."
+#exit 0
