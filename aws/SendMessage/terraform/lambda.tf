@@ -1,8 +1,4 @@
-#locals {
-#  file ="${path.module}/../dist/function.zip"
-#  name = "connection"
-#}
-
+## File for Uploading
 data "archive_file" "function_archive" {
   type        = "zip"
   source_dir  = "${path.module}/../lambda/dist"
