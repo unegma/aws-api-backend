@@ -59,3 +59,4 @@ environment.json
 
 # serverless
 .terraform
+variables.tf

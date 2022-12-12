@@ -1,0 +1,29 @@
+variable "profile" {
+  type = string
+  default = "unegma"
+}
+
+variable "region" {
+  type = string
+  default = "eu-west-2"
+}
+
+variable "domain_name" {
+  type = string
+  default = "unegma.io"
+}
+
+variable "acm_certificate_domain" {
+  type = string
+  default = "*.unegma.io"
+}
+
+variable "SLACK_ERROR_LOG" {
+  type = string
+  default = ""
+}
+
+variable "SLACK_MESSAGES_LOG" {
+  type = string
+  default = ""
+}
