@@ -1,1 +1,1 @@
-declare module "@unegma/logger";
+// declare module "@unegma/logger";
