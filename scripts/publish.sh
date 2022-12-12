@@ -40,7 +40,10 @@ mv ./node_modules--temp ./node_modules || { echo "Failed to restore dev node_mod
 
 echo "## Preparing zip file for deployment..."
 
-(cd dist; zip -qr ../function.zip .) || { echo "Failed to zip"; exit 1; }
+
+# todo this might not be needed now with terraform, but it is putting the function into the root directory
+# todo check if this zip happens twice, would be better to use the terraform version if it is
+(cd dist; zip -qr ./function.zip .) || { echo "Failed to zip"; exit 1; }
 # Make doubly sure it is deleted
 rm -rf ./dist/node_modules
 
