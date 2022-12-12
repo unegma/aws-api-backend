@@ -36,7 +36,7 @@ resource "aws_lambda_permission" "SendMessageLambdaPermissionHttpApi" {
   action = "lambda:InvokeFunction"
   function_name = aws_lambda_function.send-message.function_name
   principal = "apigateway.amazonaws.com"
-  source_arn = "${aws_apigatewayv2_api.send_message.execution_arn}/*/*/*"
+  source_arn = "${aws_apigatewayv2_api.send_message.execution_arn}/*/*"
 }
 
 resource "aws_apigatewayv2_integration" "HttpApiIntegrationSendMessage" {
