@@ -12,8 +12,15 @@ require('dotenv').config({ path: '../../.env' }); // todo this will be different
  * !!!!!!
  * !! REMEMBER TO RUN `npm run compile-watch` WHILST RUNNING IN ORDER FOR DEBUGGING TO WORK OR SET UP AS SO:
  * !! https://medium.com/@kandros/getting-started-with-typescript-debugging-with-webstorm-breakpoints-f88aab1ffe5d
- * !!!!!!
+ * !! or add 'compile typescript' to 'before launch' in debug settings for each task
  *
+ *  might also need esm stuff (todo find link) so can use imports
+ *
+ *  might also want to add to tsconfig:
+ *  "inlineSources": true,
+ *  "sourceMap": true,
+ *
+ * !!!!!!
  */
 describe(FUNCTION_NAME, () => { // todo check if this works
     let event = require('./testData/testData.json');
