@@ -1,4 +1,5 @@
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from "aws-lambda";
+import { SlackErrorLogger, SlackLogger } from '@unegma/logger'; // todo will need to change to import when updating or will cause weird errors like aws-utilities did
 
 const {
   AWS_FUNCTION_NAME,
@@ -7,8 +8,6 @@ const {
   SLACK_ERROR_LOG,
   SLACK_MESSAGES_LOG,
 }: any = process.env;
-
-const { SlackErrorLogger, SlackLogger } = require('@unegma/logger'); // todo will need to change to import when updating or will cause weird errors like aws-utilities did
 const slackLogger = new SlackLogger(SLACK_MESSAGES_LOG);
 const slackErrorLogger = new SlackErrorLogger(SLACK_ERROR_LOG);
 
