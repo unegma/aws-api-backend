@@ -1,5 +1,6 @@
 #
 # DynamoDB table resources.
+# todo how do you share tables between configurations?
 #
 resource "aws_dynamodb_table" "SendMessage" {
   name = "SendMessage"
